@@ -1,0 +1,55 @@
+img{
+    
+    /* left: 13%;
+    right:10%;
+    top:7% */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    
+
+}
+
+element.style {
+    margin-left: 200px;
+}
+
+
+
+.wrapper{
+    background-color: #fff;
+    margin-top:10%;
+    margin-left:auto;
+    margin-right: auto;
+    width:50%;
+    height: 100%;
+}
+form{
+ 
+
+ 
+    margin:auto;
+    width: 330px;
+}
+.smalltext{
+    text-align: center;
+    font-size: larger;
+   
+}
+a{ font-weight: bold;
+    color: rgb(108, 104, 134);
+    
+}
+.inputwidth{
+    width:325px;
+    position:relative;
+    left:1%;
+    right:10% ;
+}
+button{ 
+    margin-left: 28%;
+    margin-top: 10px;
+    width: 150px;
+  
+}

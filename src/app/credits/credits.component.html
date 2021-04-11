@@ -1,0 +1,253 @@
+
+<mat-tab-group mat-align-tabs="center">
+    <mat-tab label="VEHICLE lOAN">
+        <h2>  Submitted applications</h2>
+  <mat-divider></mat-divider>
+<ng-container *ngFor="let i of users,let x=index">
+  <div class="card cardsizer" *ngIf="submitstatus[x]" >
+
+
+
+<mat-accordion >
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{i.name}}
+        </mat-panel-title>
+        <mat-panel-description>
+         phone: {{i.phonenumber}}
+        </mat-panel-description>
+        <mat-panel-description>
+          submitted date: {{i.application.vehicleloan.date}}
+         </mat-panel-description>
+      </mat-expansion-panel-header>
+      application status:
+      
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h5>Application Details</h5>
+         
+        </mat-panel-title>
+        <mat-panel-description>
+         
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+     <div class="row">
+      <div class="card " style="width: 40%;">
+        <div class="card-body">
+            <h3>Personal Details</h3>
+            <mat-divider></mat-divider>
+         
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <span style='color:blueviolet'>Aadhar number:</span>{{i.application.vehicleloan.aadharno}}<br>
+          <span style='color:blueviolet'>Address:</span>{{i.application.vehicleloan.address}}<br>
+          <span style='color:blueviolet'>Pincode:</span>{{i.application.vehicleloan.pincode}}<br>
+          <span style='color:blueviolet'>Age:</span>{{i.application.vehicleloan.age}}<br>
+          <span style='color:blueviolet'>Gender:</span>{{i.application.vehicleloan.gender}}<br>
+          <span style='color:blueviolet'>Occupation:</span>{{i.application.vehicleloan.occupation}}<br>
+          <span style='color:blueviolet'>Monthly income:</span>{{i.application.vehicleloan.monthlyincome}}<br>
+          
+        </div>
+      </div>
+      <div class="card " style="width: 40%; margin-left: 3%;">
+        <div class="card-body">
+            <h3>Vehicle  details</h3>
+            <mat-divider></mat-divider>
+        
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <span style='color:blueviolet'>New/Old:</span>{{i.application.vehicleloan.neworold}}<br>
+          <span style='color:blueviolet'>Fuel:</span>{{i.application.vehicleloan.fuel}}<br>
+          <span style='color:blueviolet'>Manufacturing year:</span>{{i.application.vehicleloan.manufacturingyear}}<br>
+          <span style='color:blueviolet'>Market Price:</span>{{i.application.vehicleloan.marketprice}}<br>
+          <span style='color:blueviolet'>Vehicle company:</span>{{i.application.vehicleloan.company}}<br>
+          <span style='color:blueviolet'>Vehicle model:</span>{{i.application.vehicleloan.model}}<br>
+          <span style='color:blueviolet'>Amount required:</span>{{i.application.vehicleloan.amountrequired}}<br>
+          
+        </div>
+        <button  (click)="reject(i._id)" class="dltbtn" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button class="vbtn" (click)="verifyforaccounts(i._id)"mat-raised-button color="primary">Verify </button>
+       
+      </div>
+    </div>
+     
+      
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  </div>
+
+  <mat-divider></mat-divider>
+  <mat-divider></mat-divider>
+</ng-container>
+<h2>  verified applications</h2>
+<mat-divider></mat-divider>
+<ng-container *ngFor="let i of users,let x=index">
+<div class="card cardsizer" *ngIf="verifystatus[x]" >
+
+
+
+<mat-accordion >
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{i.name}}
+      </mat-panel-title>
+      <mat-panel-description>
+       phone: {{i.phonenumber}}
+      </mat-panel-description>
+      <mat-panel-description>
+        submitted date : {{i.application.vehicleloan.date}}
+       </mat-panel-description>
+    </mat-expansion-panel-header>
+    
+  </mat-expansion-panel>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h5>Application Details</h5>
+       
+      </mat-panel-title>
+      <mat-panel-description>
+       
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+   <div class="row">
+    <div class="card " style="width: 40%;">
+      <div class="card-body">
+          <h3>Personal Details</h3>
+          <mat-divider></mat-divider>
+       
+        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        <span style='color:blueviolet'>Aadhar number:</span>{{i.application.vehicleloan.aadharno}}<br>
+        <span style='color:blueviolet'>Address:</span>{{i.application.vehicleloan.address}}<br>
+        <span style='color:blueviolet'>Pincode:</span>{{i.application.vehicleloan.pincode}}<br>
+        <span style='color:blueviolet'>Age:</span>{{i.application.vehicleloan.age}}<br>
+        <span style='color:blueviolet'>Gender:</span>{{i.application.vehicleloan.gender}}<br>
+        <span style='color:blueviolet'>Occupation:</span>{{i.application.vehicleloan.occupation}}<br>
+        <span style='color:blueviolet'>Monthly income:</span>{{i.application.vehicleloan.monthlyincome}}<br>
+        
+      </div>
+    </div>
+    <div class="card " style="width: 40%; margin-left: 3%;">
+      <div class="card-body">
+          <h3>Vehicle  details</h3>
+          <mat-divider></mat-divider>
+        <h5 class="card-title">Card title</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        <span style='color:blueviolet'>New/Old:</span>{{i.application.vehicleloan.neworold}}<br>
+        <span style='color:blueviolet'>Fuel:</span>{{i.application.vehicleloan.fuel}}<br>
+        <span style='color:blueviolet'>Manufacturing year:</span>{{i.application.vehicleloan.manufacturingyear}}<br>
+        <span style='color:blueviolet'>Market Price:</span>{{i.application.vehicleloan.marketprice}}<br>
+        <span style='color:blueviolet'>Vehicle company:</span>{{i.application.vehicleloan.company}}<br>
+        <span style='color:blueviolet'>Vehicle model:</span>{{i.application.vehicleloan.model}}<br>
+        <span style='color:blueviolet'>Amount required:</span>{{i.application.vehicleloan.amountrequired}}<br>
+        
+      </div>
+     
+      
+    </div>
+  </div>
+   
+    
+
+  </mat-expansion-panel>
+</mat-accordion>
+
+</div>
+<mat-divider></mat-divider>
+</ng-container>
+
+ 
+<h2>  Approved and running applications</h2>
+<mat-divider></mat-divider>
+<ng-container *ngFor="let i of users,let x=index">
+<div class="card cardsizer" *ngIf="runningstatus[x]" >
+
+
+
+<mat-accordion >
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{i.name}}
+      </mat-panel-title>
+      <mat-panel-description>
+       phone: {{i.phonenumber}}
+      </mat-panel-description>
+      <mat-panel-description>
+        submitted date : {{i.application.vehicleloan.date}}
+       </mat-panel-description>
+    </mat-expansion-panel-header>
+    
+  </mat-expansion-panel>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h5>Application Details</h5>
+       
+      </mat-panel-title>
+      <mat-panel-description>
+       
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+   <div class="row">
+    <div class="card " style="width: 40%;">
+      <div class="card-body">
+          <h3>Personal Details</h3>
+          <mat-divider></mat-divider>
+       
+        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        <span style='color:blueviolet'>Aadhar number:</span>{{i.application.vehicleloan.aadharno}}<br>
+        <span style='color:blueviolet'>Address:</span>{{i.application.vehicleloan.address}}<br>
+        <span style='color:blueviolet'>Pincode:</span>{{i.application.vehicleloan.pincode}}<br>
+        <span style='color:blueviolet'>Age:</span>{{i.application.vehicleloan.age}}<br>
+        <span style='color:blueviolet'>Gender:</span>{{i.application.vehicleloan.gender}}<br>
+        <span style='color:blueviolet'>Occupation:</span>{{i.application.vehicleloan.occupation}}<br>
+        <span style='color:blueviolet'>Monthly income:</span>{{i.application.vehicleloan.monthlyincome}}<br>
+        
+      </div>
+    </div>
+    <div class="card " style="width: 40%; margin-left: 3%;">
+      <div class="card-body">
+          <h3>Vehicle  details</h3>
+          <mat-divider></mat-divider>
+        <h5 class="card-title">Card title</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        <span style='color:blueviolet'>New/Old:</span>{{i.application.vehicleloan.neworold}}<br>
+        <span style='color:blueviolet'>Fuel:</span>{{i.application.vehicleloan.fuel}}<br>
+        <span style='color:blueviolet'>Manufacturing year:</span>{{i.application.vehicleloan.manufacturingyear}}<br>
+        <span style='color:blueviolet'>Market Price:</span>{{i.application.vehicleloan.marketprice}}<br>
+        <span style='color:blueviolet'>Vehicle company:</span>{{i.application.vehicleloan.company}}<br>
+        <span style='color:blueviolet'>Vehicle model:</span>{{i.application.vehicleloan.model}}<br>
+        <span style='color:blueviolet'>Amount required:</span>{{i.application.vehicleloan.amountrequired}}<br>
+        
+      </div>
+      <!-- <button class="btn" mat-raised-button color="primary">reject </button> -->
+      
+      
+    </div>
+  </div>
+   
+    
+
+  </mat-expansion-panel>
+</mat-accordion>
+
+</div>
+<mat-divider></mat-divider>
+</ng-container>
+
+    </mat-tab>
+    <mat-tab label="GOLD LOAN">Content 2</mat-tab>
+    <mat-tab label="">Content 3</mat-tab>
+  </mat-tab-group>
+  
+  

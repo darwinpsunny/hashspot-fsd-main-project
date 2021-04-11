@@ -1,0 +1,19 @@
+.cardsizer{
+    width:80%;
+    margin-left: 7%;
+    margin-right: auto;
+    margin-top: 50px;
+}
+h2{
+    margin-top: 3%;
+    margin-left: 1%;
+}
+.vbtn{
+    position: relative;
+    bottom: 55%;
+    left:107%;
+    margin-right: 30px;
+    width: 80px;
+    text-align: center;
+    padding-right: 10px;
+  }

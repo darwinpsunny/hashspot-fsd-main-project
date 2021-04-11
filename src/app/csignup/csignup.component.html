@@ -1,0 +1,30 @@
+<div class="wrapper">
+    <form action="" (ngSubmit)="useradd();">
+      <img src="assets\img\438bd9b499a14a76ba2d444ed401ed0c.png" alt=""><br>
+      <div class="smalltext"><small>Have an account?    <a routerLink="/clogin">login</a></small></div>
+      
+          <mat-form-field class="inputwidth ">
+            <mat-label> Name</mat-label>
+            <input matInput [(ngModel)]="user.name" name="name"type="text" >
+          </mat-form-field><br><br>
+          
+          <mat-form-field class="inputwidth">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="user.email" (keyup)="emailvalidate($event);"[ngStyle]="{'color': eColor,'border-color':eColor}"name="email" type="text" >
+          </mat-form-field><br><br>
+          <mat-form-field class="inputwidth">
+            <mat-label>Phone number</mat-label>
+            <input type="number" [(ngModel)]="user.phonenumber" [ngStyle]="{'color': ncolor,'border-color':ncolor}"(keyup)="numbervalidate($event);" name="phonenumber"matInput>
+          </mat-form-field><br><br>
+          <mat-form-field class="inputwidth">
+            <mat-label>Password</mat-label>
+            <input type="password" [(ngModel)]="user.password" [ngStyle]="{'color': pColor,'border-color':pColor}"name="password"matInput (keyup)="password1validate($event);password2validate($event);">
+          </mat-form-field><div [ngStyle]="{'color': pColor,'border-color':pColor}">{{strength}}</div><br>
+          <mat-form-field class="inputwidth">
+            <mat-label>confirm Password</mat-label>
+            <input type="password" [(ngModel)]="password2"(keyup)="password2validate($event);password1validate($event);"[ngStyle]="{'color': p2color,'border-color':p2color}" name="password2 "matInput>
+          </mat-form-field><div [ngStyle]="{'color': p2color,'border-color':p2color}" >{{text}}</div><br>
+          <button mat-raised-button [disabled]="!(ebool && pbool && nbool && p2bool)" type="submit"  color="primary">signup</button>
+      
+    </form>
+    </div>

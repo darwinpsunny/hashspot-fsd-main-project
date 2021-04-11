@@ -1,0 +1,138 @@
+
+
+
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab label="User list" > <h1> user list</h1>
+
+      <mat-divider></mat-divider>
+      
+      <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">number</th>
+              <th scope="col">name</th>
+              <th scope="col">number</th>
+              <th scope="col">email</th>
+              <th scope="col">status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let i of users,let x=index">
+              <th scope="row">{{x+1}}</th>
+              <td>{{i.name}}</td>
+              <td>{{i.phonenumber}}</td>
+              <td>{{i.email}}</td>
+              <td>{{i.application.vehicleloan.status}}</td>
+            </tr>
+           
+          </tbody>
+        </table></mat-tab>
+
+
+
+    <mat-tab label="Admin credential Settings"> 
+      <div class="card cardsizer">
+        <h3 class="card-header">Master credentials</h3>
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <div class="row">
+            <div class="card " style="margin-left:30%;width: 30%;">
+              <div class="card-body">
+                  <h3>Enter new Master credentials</h3>
+                  <mat-divider></mat-divider>
+                  <form action="" (ngSubmit)="master();" >
+                    <mat-form-field class="inputwidth ">
+                      <mat-label>Old Password</mat-label>
+                      <input matInput [(ngModel)]="ompassword "  name="ompassword"type="password" >
+                    </mat-form-field><br><br>
+                    <mat-form-field class="inputwidth">
+                      <mat-label>New Password</mat-label>
+                      <input type="password" [(ngModel)]="mpassword " name="mpassword"matInput>
+                    </mat-form-field><br>
+                    <div style="text-align:center;color:red">{{message}}</div>
+                    <div style="text-align:center;color:green">{{success}}</div><br>
+                    <div   style="margin-left:10%;margin-right: auto;"><button  mat-raised-button  type="submit"  color="primary">change password</button></div>
+      
+                  </form>
+                
+              </div>
+            </div>
+           
+       
+          </div>
+          
+         
+        </div>
+      </div>
+      
+
+      <div class="card cardsizer">
+        <h3 class="card-header">Credits credentials</h3>
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <div class="row">
+            <div class="card " style="margin-left:30%;width: 30%;">
+              <div class="card-body">
+                  <h3>Enter new Credits credentials</h3>
+                  <mat-divider></mat-divider>
+                  <form action="" (ngSubmit)="credits();">
+                    <mat-form-field class="inputwidth ">
+                      <mat-label>Old password</mat-label>
+                      <input matInput [(ngModel)]="ocpassword " name="ocpassword"type="password" >
+                    </mat-form-field><br><br>
+                    <mat-form-field class="inputwidth">
+                      <mat-label>New Password</mat-label>
+                      <input type="password" [(ngModel)]="cpassword " name="cpassword"matInput>
+                    </mat-form-field><br>
+                    <div style="text-align:center;color:red">{{cmessage}}</div>
+                    <div style="text-align:center;color:green">{{csuccess}}</div><br>
+                    <div   style="margin-left:10%;margin-right: auto;"><button  mat-raised-button  type="submit"  color="primary">change password</button></div>
+      
+                  </form>
+                
+              </div>
+            </div>
+           
+       
+          </div>
+          
+
+        </div>
+      </div>
+
+      <div class="card cardsizer">
+        <h3 class="card-header">Accounts credentials</h3>
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <div class="row">
+            <div class="card " style="margin-left:30%;width: 30%;">
+              <div class="card-body">
+                  <h3>Enter new Accounts credentials</h3>
+                  <mat-divider></mat-divider>
+                  <form action="" (ngSubmit)="accounts();">
+                    <mat-form-field class="inputwidth ">
+                      <mat-label> Old password</mat-label>
+                      <input matInput [(ngModel)]="oapassword "  name="oapassword"type="password" >
+                    </mat-form-field><br><br>
+                    <mat-form-field class="inputwidth">
+                      <mat-label>New Password</mat-label>
+                      <input type="password" [(ngModel)]="apassword " name="apassword"matInput>
+                    </mat-form-field><br>
+                    <div style="text-align:center;color:red">{{amessage}}</div>
+                    <div style="text-align:center;color:green">{{asuccess}}</div><br>
+                    <div   style="margin-left:10%;margin-right: auto;"><button  mat-raised-button  type="submit"  color="primary">change password</button></div>
+      
+                  </form>
+                
+              </div>
+            </div>
+           
+       
+          </div>
+          
+          
+        </div>
+      </div>
+      </mat-tab>
+    
+  </mat-tab-group>

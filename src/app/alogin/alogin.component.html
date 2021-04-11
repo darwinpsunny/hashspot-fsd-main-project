@@ -1,0 +1,27 @@
+<div class="wrapper">
+    <form action="" (ngSubmit)="alogin();">
+      <img src="assets\img\438bd9b499a14a76ba2d444ed401ed0c.png" alt=""><br>
+      <div class="smalltext"><small>  Enter your admin credentials  <a routerLink="/csignup"></a></small></div>
+      <mat-form-field appearance="" class="inputwidth">
+        <mat-label>Select post</mat-label>
+        <mat-select [(ngModel)]="admin.post" name="post">
+          <mat-option value="Master">
+           Master
+          </mat-option>
+          <mat-option value="Credits">
+           Credits
+           </mat-option>
+           <mat-option value="Accounts">
+            Accounts
+           </mat-option>
+        </mat-select>
+      </mat-form-field>
+          <mat-form-field class="inputwidth">
+            <mat-label>Password</mat-label>
+            <input [(ngModel)]="admin.password"   name="password" type="password" matInput>
+          </mat-form-field><br>
+         <div style="text-align: center;">  <p style="color:red;">{{message}}</p></div> 
+          <button mat-raised-button type="submit" color="primary">login</button>
+      
+    </form>
+    </div>

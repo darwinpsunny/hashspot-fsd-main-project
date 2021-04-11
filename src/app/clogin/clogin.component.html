@@ -1,0 +1,18 @@
+
+<div class="wrapper">
+<form action="" (ngSubmit)=userverify()>
+  <img src="assets\img\438bd9b499a14a76ba2d444ed401ed0c.png" alt=""><br>
+  <div class="smalltext"><small>Don't have an account?     <a routerLink="/csignup">signup</a></small></div>
+    <mat-form-field class="inputwidth">
+        <mat-label>Email</mat-label>
+        <input [(ngModel)]="user.email " name="email" type="text" matInput>
+      </mat-form-field><br><br>
+      <mat-form-field class="inputwidth">
+        <mat-label>Password</mat-label>
+        <input [(ngModel)]="user.password " name="password"type="password" matInput>
+      </mat-form-field><br>
+      <div style="text-align: center;color:red">{{message}}</div>
+      <button mat-raised-button type="submit" color="primary">login</button>
+  
+</form>
+</div>

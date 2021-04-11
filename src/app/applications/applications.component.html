@@ -1,0 +1,138 @@
+
+<div class="card cardsizer">
+    <h5 class="card-header">Vehicle Loan</h5>
+    <div class="card-body">
+      <h5 class="card-title"></h5>
+      <p class="card-text"></p>
+      <br>
+      <mat-accordion>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+  <div *ngIf="!statuswait"><span style='color:blueviolet'>   status:</span>{{user.application.vehicleloan.status}}</div>
+             
+  <div *ngIf="statuswait"> <span style='color:blueviolet'>   status:</span> waiting (please accept or decline your approval) </div>   
+            </mat-panel-title>
+            <mat-panel-description>
+              <mat-progress-bar mode="determinate" color={{color}} value={{value}}></mat-progress-bar>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+       <div *ngIf="!statuswait">{{statustext}}</div>
+       <div *ngIf="statuswait">
+         your approved loan amount is:<span style='color:blueviolet'> {{user.application.vehicleloan.approvedamount}}</span> <br>
+         at interest rate:<span style='color:blueviolet'> {{user.application.vehicleloan.emi}}%</span> <br> <br>
+        <button style="width:10%;margin:auto;margin-bottom: 20px;margin-top:20px" (click)="amountaccept()"class=""mat-raised-button color="primary"> Accept</button>
+        <button style="width:10%;margin-left:20px;margin-bottom: 20px;margin-top:20px" (click)="amountreject()"class=""mat-raised-button color="warn"> Decline </button>
+      </div>
+          <!-- <mat-progress-bar mode="determinate" color={{color}} value={{value}}></mat-progress-bar> -->
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h5>Application Form</h5>
+             
+            </mat-panel-title>
+            <mat-panel-description>
+             
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          
+          <h3>Personal details</h3>
+          <mat-divider></mat-divider>
+          <form action="" (ngSubmit)=vehicleloansubmit();>
+            <mat-form-field class="example-full-width">
+              <mat-label>Aadhar Number</mat-label>
+              <input [(ngModel)]="vehicleloan.aadharno" name="aadharno" type="number" matInput>
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width">
+              <mat-label>Address</mat-label>
+              <input type="texarea" [(ngModel)]="vehicleloan.address" name="address" matInput>
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width">
+              <mat-label>Pincode</mat-label>
+              <input type="number"[(ngModel)]="vehicleloan.pincode" name="pincode" matInput>
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width">
+              <mat-label>Age</mat-label>
+              <input type="number" [(ngModel)]="vehicleloan.age" name="age"matInput>
+            </mat-form-field><br>
+            <mat-radio-group  [(ngModel)]="vehicleloan.gender" name="gender" aria-label="Select an option">
+              <mat-label>Gender</mat-label><br><br>
+              <mat-radio-button color="primary" value="Male">Male</mat-radio-button>
+              <mat-radio-button color="primary" value="Female">Female</mat-radio-button>
+            </mat-radio-group><br><br>
+            <label for="exampleFormControlSelect1">occupation</label>
+                  <select [(ngModel)]="vehicleloan.occupation" name="occupation" class="form-control" id="exampleFormControlSelect1">
+                    <option >Government Service</option>
+                    <option>Private Service</option>
+                    <option>Self Employed</option>
+                    <option>Business</option>
+                    <option>others</option>
+                  </select><br><br>
+                  <label for="exampleFormControlSelect1">Monthly income</label>
+                  <select [(ngModel)]="vehicleloan.monthlyincome" name="monthlyincome"class="form-control" id="exampleFormControlSelect1">
+                    <option >below 10000</option>
+                    <option>10000-14999</option>
+                    <option>15000-19999</option>
+                    <option>20000-25000</option>
+                    <option>above 25000</option>
+                  </select><br><br>
+              <h3>Vehicle Details</h3>
+              <mat-divider></mat-divider>
+              <mat-radio-group  [(ngModel)]="vehicleloan.neworold" name="neworold"aria-label="Select an option">
+                <mat-label>Vehicle</mat-label><br><br>
+                <mat-radio-button color="primary" value="New">New</mat-radio-button>
+                <mat-radio-button color="primary" value="Old">Old</mat-radio-button>
+              </mat-radio-group><br><br>
+              <mat-radio-group  [(ngModel)]="vehicleloan.fuel" name="fuel"aria-label="Select an option">
+                <mat-label>Fuel</mat-label><br><br>
+                <mat-radio-button color="primary" value="Petrol">Petrol</mat-radio-button>
+                <mat-radio-button color="primary"value="Diesel">Diesel</mat-radio-button>
+              </mat-radio-group><br><br>
+              <mat-form-field class="example-full-width">
+                <mat-label>Manufacturing Year</mat-label>
+                <input [(ngModel)]="vehicleloan.manufacturingyear" name="manufacturingyear"type="number" matInput>
+              </mat-form-field><br>
+              <mat-form-field class="example-full-width">
+                <mat-label>Market Price</mat-label>
+                <input [(ngModel)]="vehicleloan.marketprice" name="marketprice"type="number" matInput>
+              </mat-form-field><br>
+              <mat-form-field class="example-full-width">
+                <mat-label>vehicle company</mat-label>
+                <input [(ngModel)]="vehicleloan.company" name="company"type="text" matInput>
+              </mat-form-field><br>
+              <mat-form-field class="example-full-width">
+                <mat-label>vehicle model</mat-label>
+                <input [(ngModel)]="vehicleloan.model" name="model"type="text" matInput>
+              </mat-form-field><br>
+              <mat-form-field class="example-full-width">
+                <mat-label>Amount required</mat-label>
+                <input [(ngModel)]="vehicleloan.amountrequired" name="amountrequired"type="number" matInput>
+              </mat-form-field><br>
+              <button [disabled]="!submitted"type="submit"class="btn primary">Submit</button>
+
+
+          </form>
+
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+  <div class="card cardsizer">
+    <h5 class="card-header">Housing loan</h5>
+    <div class="card-body">
+      <h5 class="card-title">comming soon</h5>
+      
+    </div>
+  </div>
+  <div class="card cardsizer">
+    <h5 class="card-header">Education loan</h5>
+    <div class="card-body">
+      <h5 class="card-title">comming soon</h5>
+     
+    </div>
+  </div>
+  
+  
+ 

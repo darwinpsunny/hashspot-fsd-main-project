@@ -1,0 +1,30 @@
+.cardsizer{
+    width:80%;
+    margin-left: 7%;
+    margin-right: auto;
+    margin-top: 50px;
+}
+.mat-tab-group {
+    margin-top: 10px;
+    margin-bottom: 48px;
+  }
+  h2{
+    margin-top: 3%;
+    margin-left: 1%;
+}
+.dltbtn{
+  position: relative;
+  bottom: 15%;
+  left:110%;
+  
+  
+}
+.vbtn{
+  position: relative;
+  bottom: 55%;
+  left:107%;
+  margin-right: 30px;
+  width: 80px;
+  text-align: center;
+  padding-right: 10px;
+}
